@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Board</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card" aria-label="Task board">
+      <header class="card__header">
+        <h1 class="title">Task Board</h1>
+        <p class="subtitle">Add tasks, mark them done, and filter your list.</p>
+      </header>
+
+      <!-- Add Task -->
+      <form class="add" id="taskForm" autocomplete="off">
+        <label class="sr-only" for="taskInput">New task</label>
+        <input
+          id="taskInput"
+          class="add__input"
+          type="text"
+          placeholder="What do you want to get done?"
+        />
+        <button id="addBtn" class="add__btn" type="submit">Add</button>
+      </form>
+
+      <!-- Filters -->
+      <nav class="filters" aria-label="Task filters">
+        <button class="filters__btn is-active" type="button" data-filter="all">All</button>
+        <button class="filters__btn" type="button" data-filter="active">Active</button>
+        <button class="filters__btn" type="button" data-filter="completed">Completed</button>
+      </nav>
+
+      <!-- List -->
+      <ul class="list" id="taskList" aria-label="Tasks">
+        <li class="empty" id="emptyState">No tasks yet — add one above.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
