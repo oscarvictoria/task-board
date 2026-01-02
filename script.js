@@ -3,13 +3,30 @@ var tasksSelector = document.querySelectorAll('#taskForm, #taskInput, #taskList,
 
 var filterBtn = document.querySelector('.filters__btn');
 
-console.log(filterBtn); 
+//Input
+
+var taskInput = document.querySelector('#taskInput'); 
+
+// Array of tasks 
+
+var tasks = ['']; 
+
+// Append to array of tasks 
+
+
+
+
+// console.log(filterBtn); 
 
 function sayPrint(e) {
     e.preventDefault()
     console.log('Submit clicked')
+    tasks.push(taskInput.value); 
+    console.log(tasks)
+    // console.log(taskInput.value)
     
 }
+
 
 
 // filterBtn.addEventListener('click', sayPrint)
@@ -28,4 +45,6 @@ list.innerHTML += `
  ,
 `
 
-var tasks = ['Hello']; 
+
+
+
