@@ -2,6 +2,8 @@ var tasksSelector = document.querySelectorAll('#taskForm, #taskInput, #taskList,
 
 // Seperate each Selector here
 
+var taskList = document.querySelector('#taskList'); 
+
 
 var filterBtn = document.querySelector('.filters__btn');
  
@@ -31,7 +33,41 @@ console.log(tasks)
 
 // Clearn input 
 tasksSelector[1].value = ''
+
+// render 
+
+render();
  
+}
+
+function render() {
+
+   var listItem = document.createElement('li');
+
+   var checkBox = document.createElement('input')
+
+
+  for(let i = 1; i < tasks.length; i++) {
+
+    // List Item 
+   
+    listItem.className = 'item' 
+    listItem.innerText = tasks[i].text; 
+
+
+    // Checkbox
+    checkBox.className = 'check'
+    checkBox.type = 'checkbox'
+
+   // Appends 
+
+   listItem.appendChild(checkBox); 
+
+    taskList.appendChild(listItem);
+    console.log(listItem); 
+
+  }
+
 }
 
 
@@ -45,12 +81,7 @@ submit.addEventListener('click', submitTask)
 
 var list = document.querySelector('.list') 
 
-list.innerHTML += `
- <ul class="list" id="taskList" aria-label="Tasks">
-        <li class="empty" id="emptyState">Test.</li>
-      </ul>
- ,
-`
+
 
 
 
