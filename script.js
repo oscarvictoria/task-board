@@ -1,5 +1,7 @@
 var tasksSelector = document.querySelectorAll('#taskForm, #taskInput, #taskList, #emptyState'); 
- 
+
+// Seperate each Selector here
+
 
 var filterBtn = document.querySelector('.filters__btn');
  
@@ -9,23 +11,36 @@ var filterBtn = document.querySelector('.filters__btn');
 var tasks = ['']; 
 
 
-function sayPrint(e) {
+function submitTask(e) {
     e.preventDefault()
-    console.log('Submit clicked')
-    tasks.push(tasksSelector[1].value); 
-    console.log(tasksSelector[1].value)
-    console.log(tasks);
-   
-    
+
+// Create an Object of task here 
+const newTask = {
+  id: tasksSelector[1].id,
+  text: tasksSelector[1].value,
+  completed: false
+};
+
+// Add the Object to the array
+
+tasks.push(newTask); 
+
+
+// print tasks to console
+console.log(tasks)
+
+// Clearn input 
+tasksSelector[1].value = ''
+ 
 }
 
 
 
-// filterBtn.addEventListener('click', sayPrint)
+// filterBtn.addEventListener('click', submitTask)
 
 var submit = document.querySelector('#addBtn')
 
-submit.addEventListener('click', sayPrint)
+submit.addEventListener('click', submitTask)
 
 
 var list = document.querySelector('.list') 
