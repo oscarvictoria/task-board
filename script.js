@@ -1,4 +1,6 @@
-var tasksSelector = document.querySelectorAll('#taskForm, #taskInput, #taskList, #emptyState'); 
+var tasksSelector = document.querySelectorAll('#taskForm, #taskInput'); 
+
+
 
 // Seperate each Selector here
 
@@ -6,6 +8,8 @@ var taskList = document.querySelector('#taskList');
 
 
 var filterBtn = document.querySelector('.filters__btn');
+
+var emptyState = document.querySelector('#emptyState')
  
 
 // Array of tasks 
@@ -40,16 +44,30 @@ render();
  
 }
 
+function isCompleted() {
+
+}
+
 function render() {
+
+  // Clears #taskList
+  taskList.innerHTML = ''
+
+
+  if(tasks.length === 0) {
+    taskList.appendChild(emptyState); 
+    return
+
+  }
+
+
+  for(let i = 1; i < tasks.length; i++) {
 
    var listItem = document.createElement('li');
 
    var checkBox = document.createElement('input')
 
    var deleteBtn = document.createElement('button')
-
-
-  for(let i = 1; i < tasks.length; i++) {
 
     // List Item 
    
@@ -66,13 +84,13 @@ function render() {
     deleteBtn.type = 'button'
     deleteBtn.textContent = 'Delete'
 
-
-
+    if (tasks.completed) {
+    listItem.classList.add('is-completed');
+    checkBox.checked = true;
+  }
 
 
    // Appends 
-
-
 
    listItem.appendChild(checkBox); 
 
@@ -83,8 +101,8 @@ function render() {
     taskList.appendChild(listItem);
     console.log(listItem); 
 
+   
   }
-
 }
 
 
