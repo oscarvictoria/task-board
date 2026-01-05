@@ -69,6 +69,12 @@ function render() {
 
    var deleteBtn = document.createElement('button')
 
+   // Adds checkbox class 
+   checkBox.addEventListener('change', () => {
+   tasks.completed = checkBox.checked;
+  render();
+});
+
     // List Item 
    
     listItem.className = 'item' 
