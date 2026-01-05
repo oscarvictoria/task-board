@@ -46,6 +46,8 @@ function render() {
 
    var checkBox = document.createElement('input')
 
+   var deleteBtn = document.createElement('button')
+
 
   for(let i = 1; i < tasks.length; i++) {
 
@@ -59,9 +61,24 @@ function render() {
     checkBox.className = 'check'
     checkBox.type = 'checkbox'
 
+    // Delete 
+    deleteBtn.className = 'del'; 
+    deleteBtn.type = 'button'
+    deleteBtn.textContent = 'Delete'
+
+
+
+
+
    // Appends 
 
+
+
    listItem.appendChild(checkBox); 
+
+   listItem.appendChild(deleteBtn);
+
+
 
     taskList.appendChild(listItem);
     console.log(listItem); 
